@@ -13,7 +13,7 @@ services:
   #  labels:
   #    NAME: "rabbitmq1"
   sql1:
-    image: "mcr.microsoft.com/mssql/server"
+    image: "microsoft/mssql-server-windows-developer"
     hostname: "sql1"
     environment:
       ACCEPT_EULA: "Y"
