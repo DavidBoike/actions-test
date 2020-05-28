@@ -4,11 +4,20 @@ jobs:
   default:
    runs-on: ${{ matrix.os }}
    strategy:
+     fail-fast: false
      matrix:
        os: [ubuntu-latest, windows-latest]
    steps:
      - name: Checkout
        uses: actions/checkout@v2
+     - name: Switch to Linux containers
+       if: matrix.os == windows-latest
+       run: |
+         gci env:
+         ls "C:\Program Files\Docker"
+         ls "C:\Program Files\Docker\Docker"
+         "C:\Program Files\Docker\Docker\DockerCLI.exe" -Version
+         "C:\Program Files\Docker\Docker\DockerCLI.exe" -SwitchLinuxEngine
      - name: Docker Compose
        run: docker-compose up --detach
      - name: List containers
