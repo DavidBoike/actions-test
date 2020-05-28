@@ -7,8 +7,8 @@ jobs:
      - name: Checkout
        uses: actions/checkout@v2
      - name: Docker Compose
-       run: docker compose up -d
+       run: docker-compose up --detach
      - name: List containers
        run: docker ps -a
      - name: Cleanup
-       run: docker compose down
+       run: docker-compose down
