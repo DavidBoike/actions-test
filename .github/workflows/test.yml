@@ -11,7 +11,7 @@ jobs:
      - name: Checkout
        uses: actions/checkout@v2
      - name: Switch to Linux containers
-       if: matrix.os == windows-latest
+       if: matrix.os == 'windows-latest'
        run: |
          gci env:
          ls "C:\Program Files\Docker"
