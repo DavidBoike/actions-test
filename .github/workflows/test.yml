@@ -10,14 +10,14 @@ jobs:
    steps:
      - name: Checkout
        uses: actions/checkout@v2
-     - name: Switch to Linux containers
-       if: matrix.os == 'windows-latest'
-       run: |
-         gci env:
-         ls "C:\Program Files\Docker"
-         ls "C:\Program Files\Docker\Docker"
-         Start-Process -FilePath "C:\Program Files\Docker\Docker\DockerCLI.exe" -ArgumentList "-Version"
-         Start-Process -FilePath "C:\Program Files\Docker\Docker\DockerCLI.exe" -ArgumentList "-SwitchLinuxEngine"
+     #- name: Switch to Linux containers
+     #  if: matrix.os == 'windows-latest'
+     #  run: |
+     #    gci env:
+     #    ls "C:\Program Files\Docker"
+     #    ls "C:\Program Files\Docker\Docker"
+     #    Start-Process -FilePath "C:\Program Files\Docker\Docker\DockerCLI.exe" -ArgumentList "-Version"
+     #    Start-Process -FilePath "C:\Program Files\Docker\Docker\DockerCLI.exe" -ArgumentList "-SwitchLinuxEngine"
      - name: Docker Compose
        run: docker-compose up --detach
      - name: List containers
